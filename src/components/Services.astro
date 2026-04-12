@@ -1,0 +1,220 @@
+---
+const services = [
+  {
+    icon: 'M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z',
+    title: 'Supply Chain & Ops',
+    desc: 'End-to-end process optimization, inventory management, and logistics for leaner operations.',
+    accent: '#002D62',
+    link: '#ops'
+  },
+  {
+    icon: 'M2 3h20v14H2z M8 21h8 M12 17v4',
+    title: 'Digital & Web Solutions',
+    desc: 'Custom web platforms, portals, and digital tools tailored precisely to your legacy business workflows.',
+    accent: '#1E4FA0',
+    link: '#digital'
+  },
+  {
+    icon: 'M18 20V10 M12 20V4 M6 20v-6',
+    title: 'Digital Marketing',
+    desc: 'Performance-driven marketing—SEO, paid ads, and brand positioning that converts signals into revenue.',
+    accent: '#3b82f6',
+    link: '#marketing'
+  },
+  {
+    icon: 'M2 7h20v14H2z M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16',
+    title: 'SaaS Products (ERP)',
+    desc: 'Proprietary ERP connecting Sales, Finance, HR, and Production in one intelligent system.',
+    accent: '#002D62',
+    link: '#erp'
+  },
+];
+---
+
+<section id="services" class="services-wrapper">
+  <div class="container">
+    <div class="services-header reveal">
+      <span class="eyebrow">Expertise</span>
+      <h2 class="display-title">Strategic <span class="highlight">Business Solutions</span></h2>
+      <p class="lead-text">A comprehensive suite designed to modernize infrastructure and sustain high-velocity growth.</p>
+    </div>
+
+    <div class="services-matrix">
+      {services.map((s, i) => (
+        <a href={s.link} class={`service-pillar reveal stagger-${i + 1}`} style={`--pillar-accent: ${s.accent}`}>
+          <div class="pillar-content">
+            <div class="pillar-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d={s.icon}/>
+              </svg>
+            </div>
+            <div class="pillar-text">
+              <h3 class="pillar-title">{s.title}</h3>
+              <p class="pillar-desc">{s.desc}</p>
+            </div>
+          </div>
+          <div class="pillar-footer">
+            <span class="action-text">Explore Solutions</span>
+            <div class="action-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <div class="pillar-bg-decoration"></div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.services-wrapper {
+  background-color: #fcfcfd;
+  padding: 100px 0;
+  position: relative;
+}
+
+.services-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 80px;
+}
+
+.eyebrow {
+  color: #002D62;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.display-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.highlight { color: #64748b; font-weight: 500; }
+
+.lead-text {
+  font-size: 1.2rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* Service Matrix Layout */
+.services-matrix {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.service-pillar {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 32px;
+  padding: 48px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 340px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-pillar:hover {
+  transform: translateY(-10px);
+  border-color: var(--pillar-accent);
+  box-shadow: 0 30px 60px -15px rgba(0, 45, 98, 0.1);
+}
+
+.pillar-icon-box {
+  width: 56px;
+  height: 56px;
+  background: #f1f5f9;
+  color: var(--pillar-accent);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  transition: all 0.3s;
+}
+
+.service-pillar:hover .pillar-icon-box {
+  background: var(--pillar-accent);
+  color: #fff;
+  transform: rotate(-5deg) scale(1.1);
+}
+
+.pillar-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.pillar-desc {
+  font-size: 1.05rem;
+  color: #64748b;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+/* Pillar Footer & Actions */
+.pillar-footer {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.service-pillar:hover .pillar-footer { opacity: 1; }
+
+.action-text {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--pillar-accent);
+}
+
+.action-arrow {
+  color: var(--pillar-accent);
+  transition: transform 0.3s;
+}
+
+.service-pillar:hover .action-arrow { transform: translateX(8px); }
+
+/* Hidden background detail for premium feel */
+.pillar-bg-decoration {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  background: var(--pillar-accent);
+  opacity: 0.02;
+  border-radius: 50%;
+  transition: transform 0.5s;
+}
+
+.service-pillar:hover .pillar-bg-decoration {
+  transform: scale(2);
+  opacity: 0.04;
+}
+
+@media (max-width: 1024px) {
+  .services-matrix { grid-template-columns: 1fr; }
+  .service-pillar { padding: 40px; }
+}
+</style>

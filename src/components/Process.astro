@@ -1,0 +1,203 @@
+---
+const steps = [
+  { num: '01', title: 'Analyze', desc: 'Deep-dive into your operations and bottlenecks to map where value is lost.', icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' },
+  { num: '02', title: 'Design', desc: 'Blueprint a custom system architecture and process map tailored to your goals.', icon: 'M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25' },
+  { num: '03', title: 'Implement', desc: 'Deploy ERP modules and train your team for full adoption with hands-on support.', icon: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z' },
+  { num: '04', title: 'Scale', desc: 'Iterate, optimize and expand as your business grows — we stay with you.', icon: 'M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 001.62 3.82 14.99 14.99 0 007.78 15.94' },
+];
+---
+
+<section id="process" class="process-wrapper">
+  <div class="container">
+    <div class="process-header reveal">
+      <span class="eyebrow">Methodology</span>
+      <h2 class="display-h2">A Proven <span class="highlight">Engagement Model</span></h2>
+      <p class="description">
+        We bridge the gap between discovery and scale with a structured, transparent process designed for enterprise-grade reliability.
+      </p>
+    </div>
+
+    <div class="process-timeline">
+      {steps.map((s, i) => (
+        <div class={`process-node reveal stagger-${i + 1}`}>
+          <div class="node-header">
+            <div class="node-number">{s.num}</div>
+            {i < steps.length - 1 && <div class="node-path"></div>}
+          </div>
+          
+          <div class="node-card">
+            <div class="node-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d={s.icon}/>
+              </svg>
+            </div>
+            <h3 class="node-title">{s.title}</h3>
+            <p class="node-desc">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.process-wrapper {
+  background: #050505ff;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Blueprint grid pattern matches your new aesthetic */
+.process-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.process-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 100px;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.display-h2 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.highlight {
+  background: linear-gradient(to right, #fff, rgba(255,255,255,0.4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+}
+
+/* Timeline/Pathing Logic */
+.process-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+
+.process-node {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.node-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+/* Squircle Node Style */
+.node-number {
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  color: #ffffff;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.node-path {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin-left: 1.5rem;
+  position: relative;
+}
+
+/* Card UIUX Improvements */
+.node-card {
+  position: relative;
+  background: rgba(10, 10, 12, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3rem 2.5rem;
+  border-radius: 24px;
+  flex-grow: 1;
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.process-node:hover .node-card {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(255,255,255,0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.node-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.03);
+  color: var(--primary);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s;
+}
+
+.process-node:hover .node-icon-wrapper {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.node-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.node-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .process-timeline { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .node-path { display: none; }
+}
+
+@media (max-width: 640px) {
+  .process-timeline { grid-template-columns: 1fr; }
+}
+</style>

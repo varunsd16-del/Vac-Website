@@ -1,0 +1,97 @@
+---
+---
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <div class="cta-block reveal">
+      <div class="cta-bg-glow"></div>
+      <div class="cta-content">
+        <div class="tag" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8)">Get Started Today</div>
+        <h2 class="cta-title">Ready to Systemize<br />Your Business?</h2>
+        <p class="cta-sub">
+          Let's build a system that scales with your ambitions.
+          Book a free discovery call today — no commitment, just clarity.
+        </p>
+        <div class="cta-actions">
+          <a href="mailto:info@vacglobal.com" class="btn btn-primary btn-lg">
+            Book a Free Demo
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="mailto:info@vacglobal.com" class="btn btn-ghost btn-lg">Contact Us</a>
+        </div>
+        <div class="contact-info">
+          <a href="tel:+18008224562" class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42C2 2.18 3.11 2 4.09 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +1 (800) VAC-GLOB
+          </a>
+          <a href="mailto:info@vacglobal.com" class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@vacglobal.com
+          </a>
+          <a href="https://vacglobalsolutions.com" class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            vacglobalsolutions.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.contact-section { background: var(--neutral); }
+
+.cta-block {
+  position: relative;
+  background: linear-gradient(135deg, #001840 0%, var(--primary) 50%, #1a0a00 100%);
+  border-radius: 28px;
+  padding: 5rem 4rem;
+  overflow: hidden;
+  text-align: center;
+}
+.cta-bg-glow {
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(84,29,2,0.25), transparent 70%);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+.cta-content { position: relative; z-index: 2; }
+
+.cta-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+  line-height: 1.1;
+}
+.cta-sub {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.65);
+  max-width: 540px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.cta-actions {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.contact-info {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem;
+}
+.contact-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-item:hover { color: var(--white); }
+
+@media (max-width: 700px) {
+  .cta-block { padding: 3rem 1.5rem; }
+  .contact-info { flex-direction: column; align-items: center; gap: 1rem; }
+}
+</style>

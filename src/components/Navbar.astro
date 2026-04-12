@@ -1,0 +1,199 @@
+---
+---
+<nav id="navbar" class="nav-standard">
+  <div class="nav-inner container">
+    <a href="#hero" class="brand">
+      <div class="brand-symbol">VAC</div>
+      <div class="brand-text">
+        <span class="brand-global">Global Solutions</span>
+      </div>
+    </a>
+
+    <div class="nav-center">
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-item">About</a></li>
+        <li><a href="#services" class="nav-item">Services</a></li>
+        <li><a href="#erp" class="nav-item">ERP</a></li>
+        <li><a href="#process" class="nav-item">Process</a></li>
+        <li><a href="#pricing" class="nav-item">Pricing</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-right">
+      <a href="#contact" class="btn-demo">
+        <span>Book a Demo</span>
+      </a>
+      <button id="menu-btn" class="menu-trigger" aria-label="Toggle menu">
+        <div class="burger-lines"></div>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-overlay">
+    <div class="mobile-content container">
+       <div class="mobile-links">
+         <a href="#about">About</a>
+         <a href="#services">Services</a>
+         <a href="#erp">ERP</a>
+         <a href="#pricing">Pricing</a>
+         <a href="#contact" class="mobile-cta">Book a Demo</a>
+       </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scrolled State - "Senior" Glassmorphism */
+#navbar.scrolled {
+  padding: 0.8rem 0;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Logic */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-symbol {
+  background: #002D62;
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.1rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  letter-spacing: -0.02em;
+}
+
+.brand-global {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a; /* Always visible on light bg */
+  letter-spacing: -0.01em;
+}
+
+/* Links Strategy */
+.nav-links {
+  display: flex;
+  list-style: none;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 4px;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-item {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  padding: 8px 16px;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+
+.nav-item:hover {
+  color: #002D62;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* CTA Button */
+.btn-demo {
+  background: #002D62;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.btn-demo:hover {
+  transform: translateY(-2px);
+  background: #001D3D;
+}
+
+/* Responsive Trigger (Burger) */
+.menu-trigger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.burger-lines, .burger-lines::before, .burger-lines::after {
+  width: 20px;
+  height: 2px;
+  background: #002D62;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.burger-lines { position: relative; }
+.burger-lines::before { content: ''; position: absolute; top: -6px; left: 0; }
+.burger-lines::after { content: ''; position: absolute; bottom: -6px; left: 0; }
+
+@media (max-width: 900px) {
+  .nav-center, .nav-right .btn-demo { display: none; }
+  .menu-trigger { display: block; }
+  #navbar { padding: 1rem 0; }
+}
+
+/* Mobile Overlay Logic */
+#mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#mobile-overlay.open { transform: translateX(0); }
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+}
+
+.mobile-links a {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-decoration: none;
+}
+
+.mobile-cta {
+  background: #002D62;
+  color: #fff !important;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.2rem !important;
+}
+</style>

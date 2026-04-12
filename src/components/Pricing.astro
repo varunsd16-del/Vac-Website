@@ -1,0 +1,268 @@
+---
+const plans = [
+  {
+    name: 'Starter System',
+    target: 'Micro businesses needing a solid foundation.',
+    recommended: false,
+    features: ['Sales & CRM (Basic)', 'Inventory Management', 'Basic Finance', 'Up to 5 Users', 'Email Support'],
+    cta: 'Get Started',
+    price: 'Essential',
+    accent: '#64748B', 
+  },
+  {
+    name: 'Growth System',
+    target: 'Designed for high-velocity scaling teams.',
+    recommended: true,
+    features: ['Full Sales & CRM', 'Advanced Inventory', 'Finance + Payables', 'HR Management', 'Priority Support', 'API Access'],
+    cta: 'Start Growing',
+    price: 'Professional',
+    accent: '#002D62',
+  },
+  {
+    name: 'Scale System',
+    target: 'Complex operations with deep analytics.',
+    recommended: false,
+    features: ['All Growth Features', 'Production Module', 'Analytics & BI', 'Custom Workflows', 'Dedicated Manager'],
+    cta: 'Scale Now',
+    price: 'Enterprise',
+    accent: '#1E4FA0',
+  },
+  {
+    name: 'Custom OS',
+    target: 'Bespoke infrastructure for total control.',
+    recommended: false,
+    features: ['Fully Bespoke ERP', 'Consulting Included', 'Multi-entity Setup', 'On-site Training', '24/7 Phone Support'],
+    cta: 'Contact Us',
+    price: 'Bespoke',
+    accent: '#002D62',
+  },
+];
+---
+
+<section id="pricing" class="pricing-wrapper">
+  <div class="container wide-container">
+    <div class="pricing-header reveal">
+      <span class="eyebrow">Investment</span>
+      <h2 class="display-title">Systems Designed for <span class="emphasis">Every Scale</span></h2>
+      <p class="lead-text">From local operations to multi-entity enterprises, we provide the digital architecture to sustain your growth.</p>
+    </div>
+
+    <div class="pricing-container">
+      {plans.map((p, i) => (
+        <div class={`plan-card reveal stagger-${i + 1} ${p.recommended ? 'is-popular' : ''}`}>
+          {p.recommended && <div class="popular-tag">Most Preferred</div>}
+          
+          <div class="plan-top">
+            <span class="tier-label" style={`color: ${p.accent}`}>{p.price}</span>
+            <h3 class="plan-title">{p.name}</h3>
+            <p class="plan-subtitle">{p.target}</p>
+          </div>
+
+          <div class="divider"></div>
+
+          <ul class="feature-list">
+            {p.features.map(f => (
+              <li>
+                <div class="check-icon" style={`background: ${p.accent}15; color: ${p.accent}`}>
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17L4 12" transform="scale(0.7)"/></svg>
+                </div>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="plan-footer">
+            <a href="#contact" class={`cta-button ${p.recommended ? 'primary' : 'secondary'}`} style={!p.recommended ? `--btn-accent: ${p.accent}` : ''}>
+              {p.cta}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+.pricing-wrapper {
+  background-color: #f8fafc;
+  padding: 100px 0;
+  color: #0f172a;
+}
+
+.pricing-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 100px;
+}
+
+.eyebrow {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  color: #64748b;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.display-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.emphasis { color: #002D62; }
+
+.lead-text {
+  font-size: 1.25rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* The Grid */
+.pricing-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.plan-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px -12px rgba(0, 45, 98, 0.12);
+  border-color: #cbd5e1;
+}
+
+.is-popular {
+  border: 2px solid #002D62;
+  box-shadow: 0 20px 40px -10px rgba(0, 45, 98, 0.1);
+}
+
+.popular-tag {
+  position: absolute;
+  top: 0; left: 50%; transform: translate(-50%, -50%);
+  background: #002D62;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tier-label {
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.plan-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: #0f172a;
+}
+
+.plan-subtitle {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.5;
+  min-height: 3rem;
+}
+
+.divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 30px 0;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  flex-grow: 1;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: #334155;
+  margin-bottom: 14px;
+}
+
+.check-icon {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  display: flex; align-items: center; justifyContent: center;
+  flex-shrink: 0;
+}
+
+.plan-footer { margin-top: 40px; }
+
+.cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+.cta-button.primary {
+  background: #002D62;
+  color: #fff;
+}
+
+.cta-button.primary:hover {
+  background: #001D3D;
+  box-shadow: 0 10px 20px rgba(0, 45, 98, 0.2);
+}
+
+.cta-button.secondary {
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+.cta-button.secondary:hover {
+  background: #f1f5f9;
+  border-color: var(--btn-accent);
+  color: var(--btn-accent);
+}
+
+.wide-container {
+  max-width: 1400px !important;
+  width: 95%;
+}
+
+@media (max-width: 1300px) {
+  .pricing-container { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .plan-card { padding: 40px; }
+}
+
+@media (max-width: 768px) {
+  .pricing-wrapper { padding: 80px 0; }
+  .pricing-container { grid-template-columns: 1fr; }
+  .plan-card { padding: 30px; }
+}
+</style>

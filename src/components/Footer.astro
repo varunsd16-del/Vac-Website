@@ -1,0 +1,233 @@
+---
+---
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main-grid">
+      
+      <div class="footer-identity">
+        <a href="#hero" class="brand-link">
+          <div class="brand-box">VAC</div>
+          <span class="brand-text">Global Solutions</span>
+        </a>
+        <p class="brand-vision">
+          Re-engineering business operations through intelligent system architecture and unified ERP solutions.
+        </p>
+        <div class="footer-status">
+          <span class="status-indicator"></span>
+          <span class="status-label">System Status: Optimal</span>
+        </div>
+      </div>
+
+      <div class="footer-nav-matrix">
+        <div class="nav-group">
+          <h5 class="nav-heading">Company</h5>
+          <ul class="nav-list">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#industries">Industries</a></li>
+            <li><a href="#process">How We Work</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-group">
+          <h5 class="nav-heading">Platform</h5>
+          <ul class="nav-list">
+            <li><a href="#erp">ERP OS</a></li>
+            <li><a href="#pricing">Licensing</a></li>
+            <li><a href="#contact">Schedule Demo</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-group">
+          <h5 class="nav-heading">Connectivity</h5>
+          <ul class="nav-list">
+            <li><a href="mailto:info@vacglobal.com" class="contact-link">info@vacglobal.com</a></li>
+            <li><a href="tel:+18008224562" class="contact-link">+1 (800) VAC-GLOB</a></li>
+            <li class="location">Trichy, TN | Global</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <div class="legal-left">
+        <span class="copyright">© 2026 VAC Global Solutions</span>
+        <span class="legal-sep"></span>
+        <a href="#" class="legal-link">Privacy Policy</a>
+        <span class="legal-sep"></span>
+        <a href="#" class="legal-link">Terms of System</a>
+      </div>
+      <div class="legal-right">
+        <p class="confidential-tag">Confidential Intellectual Property</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+  background: var(--dark); /* Kept your dark background */
+  padding: 100px 0 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.footer-main-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 4rem;
+  margin-bottom: 80px;
+}
+
+/* Brand Identity Styling */
+.footer-identity {
+  max-width: 320px;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+
+.brand-box {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.1rem;
+  padding: 6px 10px;
+  border-radius: 8px; /* Matches your Squircle theme */
+  letter-spacing: -0.02em;
+}
+
+.brand-text {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.brand-vision {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.status-indicator {
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+}
+
+.status-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Navigation Matrix Styling */
+.footer-nav-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.nav-heading {
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.nav-list a {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.location {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 1rem;
+}
+
+/* Legal Footer Styling */
+.footer-legal {
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.legal-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.copyright, .legal-link, .confidential-tag {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+}
+
+.legal-link:hover { color: #fff; }
+
+.legal-sep {
+  width: 3px; height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.confidential-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+@media (max-width: 960px) {
+  .footer-main-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-nav-matrix { grid-template-columns: repeat(2, 1fr); }
+  .footer-legal { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .footer-nav-matrix { grid-template-columns: 1fr; }
+}
+</style>

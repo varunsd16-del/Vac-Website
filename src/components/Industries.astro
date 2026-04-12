@@ -1,0 +1,193 @@
+---
+const industries = [
+  { icon: 'M2 20V9l4-2v3l4-2v3l4-2v3l4-2v11z', name: 'Manufacturing', desc: 'BOM, production runs, quality control & inventory management' },
+  { icon: 'M12 21a9 9 0 100-18 9 9 0 000 18zm0-13v8m-4-4h8', name: 'Healthcare', desc: 'Patient records, billing, procurement & compliance tracking' },
+  { icon: 'M16 16v1a2 2 0 01-2 2H3a2 2 0 01-2-2V7a2 2 0 012-2h2m4 0h4a2 2 0 012 2v1m-4 7V9', name: 'Logistics', desc: 'Fleet, routing, order fulfillment & real-time tracking' },
+  { icon: 'M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6', name: 'E-Commerce', desc: 'Order management, warehouse, customer portal & analytics' },
+  { icon: 'M3 21h18M3 10h18M5 10v11M19 10v11M12 10v11M4 10l8-7 8 7', name: 'Institutions', desc: 'Fee management, HR, procurement & campus operations' },
+];
+---
+<section id="industries" class="industries-wrapper">
+  <div class="container wide-container">
+    <div class="header-group reveal">
+      <span class="badge">Industries We Serve</span>
+      <h2 class="title-display">Purpose-Built for <span class="text-gradient">Your Industry</span></h2>
+      <p class="subtitle">
+        Custom ERP configurations engineered for specific operational logic.
+      </p>
+    </div>
+
+    <div class="industries-grid">
+      {industries.map((ind, i) => (
+        <div class={`glass-card reveal stagger-${i + 1}`}>
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="industry-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d={ind.icon}/>
+              </svg>
+            </div>
+            <h3 class="card-title">{ind.name}</h3>
+            <p class="card-text">{ind.desc}</p>
+          </div>
+          <div class="card-footer">
+            <div class="status-indicator"></div>
+            <span>Industry Core Active</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.industries-wrapper {
+  background: #050505;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.industries-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.header-group {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 80px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.title-display {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #fff, rgba(255,255,255,0.4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+}
+
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.glass-card {
+  position: relative;
+  background: rgba(10, 10, 12, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.card-glow {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+              rgba(255,255,255,0.06), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255,255,255,0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.glass-card:hover .card-glow {
+  opacity: 1;
+}
+
+.industry-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+.card-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.status-indicator {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 8px var(--primary);
+}
+
+.wide-container {
+  max-width: 1400px !important;
+  width: 95%;
+}
+
+@media (max-width: 1400px) {
+  .industries-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .industries-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .industries-grid { grid-template-columns: 1fr; }
+}
+</style>

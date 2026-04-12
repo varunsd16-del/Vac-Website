@@ -1,0 +1,262 @@
+---
+const modules = [
+  { name: 'Sales & CRM', icon: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8m8 0h1a3 3 0 0 1 3 3v8m-4-11a3 3 0 0 1-3-3V2', desc: 'Pipeline, leads & portal' },
+  { name: 'Inventory', icon: 'M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z', desc: 'Stock control & alerts' },
+  { name: 'Finance', icon: 'M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6', desc: 'Receivables & Tax' },
+  { name: 'HR', icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8', desc: 'Payroll & Compliance' },
+  { name: 'Production', icon: 'M2 20V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2Z', desc: 'BOM & Quality Control' },
+  { name: 'Intelligence', icon: 'M3 3v18h18M7 16l4-4 4 4 5-5', desc: 'Live KPIs & Forecasts' },
+];
+---
+
+<section id="erp" class="erp-wrapper light-theme">
+  <div class="container">
+    <div class="erp-split">
+      
+      <div class="erp-narrative reveal">
+        <span class="eyebrow">The Architecture</span>
+        <h2 class="display-h2">Your Business.<br /> <span class="highlight">One Unified OS.</span></h2>
+        <p class="description">
+          The VAC ERP Core isn't just a database—it's a central nervous system. By unifying every department, we eliminate data silos and automate the friction out of growth.
+        </p>
+        
+        <div class="benefit-stack">
+          <div class="benefit-row">
+            <div class="mini-icon">✓</div>
+            <p>System-driven workflows replace manual debt</p>
+          </div>
+          <div class="benefit-row">
+            <div class="mini-icon">✓</div>
+            <p>Real-time data integrity across all nodes</p>
+          </div>
+        </div>
+
+        <a href="#contact" class="demo-cta-light">
+          Request ERP Demo
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="erp-visual">
+        <div class="architecture-grid">
+          
+          <div class="brain-node reveal">
+            <div class="brain-inner">
+              <span class="brain-title">CORE</span>
+              <div class="scan-ring"></div>
+            </div>
+          </div>
+
+          <div class="nodes-container">
+            {modules.map((m, i) => (
+              <div class={`system-node reveal stagger-${i+1}`}>
+                <div class="node-icon-bg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d={m.icon}/>
+                  </svg>
+                </div>
+                <div class="node-content">
+                  <h5>{m.name}</h5>
+                  <p>{m.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<style>
+.erp-wrapper.light-theme {
+  background-color: #fcfcfd; /* Ultra-clean white-grey */
+  padding: 100px 0;
+  color: #0f172a;
+  position: relative;
+}
+
+/* Subtle architectural grid pattern */
+.erp-wrapper.light-theme::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(#e2e8f0 1.2px, transparent 0);
+  background-size: 40px 40px;
+  opacity: 0.5;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+.erp-split {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+/* Narrative Styling */
+.eyebrow {
+  color: #002D62;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.display-h2 {
+  font-size: clamp(2.5rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.description {
+  font-size: 1.15rem;
+  color: #475569;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.benefit-stack {
+  margin: 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.benefit-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.mini-icon {
+  color: #002D62;
+  font-weight: 900;
+}
+
+/* Architecture Visual */
+.erp-visual {
+  position: relative;
+}
+
+.brain-node {
+  width: 120px;
+  height: 120px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 3rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 45, 98, 0.08);
+  position: relative;
+}
+
+.brain-title {
+  font-weight: 900;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: #002D62;
+}
+
+.scan-ring {
+  position: absolute;
+  inset: -8px;
+  border: 1.5px solid #002D62;
+  border-radius: 28px;
+  opacity: 0.1;
+  animation: pulse-light 4s infinite ease-in-out;
+}
+
+@keyframes pulse-light {
+  0% { transform: scale(1); opacity: 0.15; }
+  50% { transform: scale(1.08); opacity: 0.05; }
+  100% { transform: scale(1); opacity: 0.15; }
+}
+
+.nodes-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.system-node {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.system-node:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -10px rgba(0, 45, 98, 0.06);
+}
+
+.node-icon-bg {
+  width: 40px;
+  height: 40px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #002D62;
+}
+
+.node-content h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.node-content p {
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.demo-cta-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #002D62;
+  color: #fff;
+  padding: 1rem 2.25rem;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.demo-cta-light:hover {
+  background: #001D3D;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 45, 98, 0.15);
+}
+
+@media (max-width: 1024px) {
+  .erp-split { grid-template-columns: 1fr; gap: 4rem; text-align: center; }
+  .description, .benefit-stack { margin-left: auto; margin-right: auto; }
+}
+</style>
